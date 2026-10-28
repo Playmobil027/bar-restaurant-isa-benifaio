@@ -35,8 +35,8 @@ a{color:inherit}
 /* granito */
 .granito{
   background-color:var(--granito);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .12 0 0 0 0 .11 0 0 0 0 .11 0 0 0 10 -6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' seed='19'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -5.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.7'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='1' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .12 0 0 0 0 .11 0 0 0 0 .11 0 0 0 16 -10.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E"),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='1' seed='19'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 16 -10.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.55'/%3E%3C/svg%3E");
 }
 
 /* botones */
@@ -51,7 +51,7 @@ a{color:inherit}
 /* cabecera */
 .cab{position:absolute;inset:0 0 auto 0;z-index:10}
 .cab .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.cab .logo img{height:54px;width:auto}
+.cab .logo img{width:118px;height:auto}
 .cab nav{display:none;gap:28px}
 .cab nav a{font-weight:600;text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
 .cab nav a:hover{border-color:var(--tinta)}
@@ -69,14 +69,16 @@ a{color:inherit}
 .hero-txt{max-width:30ch;margin-top:20px}
 .hero-txt p.gr{font-size:1.5rem;line-height:1.2;font-weight:600}
 .hero-txt p.pq{margin-top:12px;color:#2b2b2b}
-.hero .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.col-i{display:contents}
+.hero .estado{order:1}.hero .hora{order:2}.hero .col-d{order:3}.hero .hero-txt{order:4}.hero .acciones{order:5}
+.hero .acciones{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 70px}
 .plato{border-radius:50%;box-shadow:0 0 0 7px var(--papel),0 0 0 12px var(--filo);overflow:hidden;background:var(--granito)}
 .plato img{width:100%;height:100%;object-fit:cover}
-.hero .p1{width:min(86vw,430px);aspect-ratio:1;margin:46px -14vw -14vw auto;position:relative;z-index:2}
-.hero .p2{position:absolute;width:34vw;max-width:190px;aspect-ratio:1;left:-6vw;bottom:-6vw;z-index:3}
+.hero .p1{width:min(74vw,430px);aspect-ratio:1;margin:-8px -10vw 0 auto;position:relative;z-index:2}
+.hero .p2{position:absolute;width:30vw;max-width:190px;aspect-ratio:1;left:2vw;bottom:-4vw;z-index:3}
 
 /* banda confianza */
-.banda{background:var(--tinta);color:var(--papel);padding:92px 0 38px;position:relative;z-index:1}
+.banda{background:var(--tinta);color:var(--papel);padding:60px 0 38px;position:relative;z-index:1}
 .banda .wrap{display:grid;gap:26px}
 .banda .nota{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .banda .nota b{font-family:var(--display);font-weight:400;font-size:clamp(4rem,14vw,7rem);line-height:.9;color:var(--calabaza)}
@@ -129,11 +131,11 @@ a{color:inherit}
 .pasos li p{color:#333;max-width:44ch}
 
 /* reseñas */
-.res{background:var(--granito);padding:84px 0 92px;position:relative}
+.res{background:#E6DFD3;padding:84px 0 92px;position:relative}
 .res .wrap{display:grid;gap:30px}
 .res h2{font-size:clamp(2.2rem,7vw,4rem);max-width:13ch}
 .res .estrellas{color:var(--tinta);letter-spacing:3px;font-size:1.2rem}
-.res blockquote{background:var(--papel);padding:26px 26px 24px;position:relative}
+.res blockquote{background:#fff;padding:26px 26px 24px;position:relative}
 .res blockquote p{font-size:1.1rem;line-height:1.5}
 .res blockquote.gr{background:var(--tinta);color:var(--papel)}
 .res blockquote.gr p{font-family:var(--display);font-size:clamp(1.5rem,5vw,2.3rem);line-height:1.12}
@@ -149,7 +151,7 @@ a{color:inherit}
 .mos .a{grid-column:1/5;aspect-ratio:1}
 .mos .b{grid-column:5/7;aspect-ratio:1;align-self:start}
 .mos .c{grid-column:1/3;aspect-ratio:1}
-.mos .d{grid-column:3/7;aspect-ratio:1}
+.mos .d{grid-column:3/7;aspect-ratio:1;max-width:78%;justify-self:end}
 .mos .e{grid-column:2/6;aspect-ratio:4/3;border-radius:0;box-shadow:none;margin:6px 0;border:10px solid var(--papel);outline:2px solid var(--tinta);outline-offset:-2px}
 .mos .e img{object-position:center 60%}
 .gal .pie{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
@@ -181,7 +183,7 @@ a{color:inherit}
 /* pie */
 .pie-web{background:var(--papel);padding:40px 0 30px;border-top:2px solid var(--tinta)}
 .pie-web .wrap{display:grid;gap:22px}
-.pie-web img{height:56px;width:auto}
+.pie-web img{width:130px;height:auto}
 .pie-web nav{display:flex;flex-wrap:wrap;gap:6px 22px}
 .pie-web nav a{padding:8px 0;font-weight:500}
 .pie-web small{color:#444}
@@ -206,10 +208,11 @@ body.ver-editables .edit{outline:2px dashed #e0245e;outline-offset:2px;backgroun
   body{padding-bottom:0}
   .movil{display:none}
   .cab nav{display:flex}
-  .cab .logo img{height:64px}
+  .cab .logo img{width:150px}
   .hero{padding-top:110px}
   .hero .wrap{grid-template-columns:1.05fr .95fr;align-items:end;column-gap:20px}
-  .hero .col-i{padding-bottom:64px}
+  .col-i{display:block;padding-bottom:64px}
+  .hero .acciones{margin:26px 0 0}
   .hora{font-size:clamp(10rem,22vw,20rem)}
   .hero .p1{width:min(42vw,520px);margin:0 -4vw -90px auto}
   .hero .p2{left:auto;right:calc(min(42vw,520px) - 6vw);bottom:-70px;width:min(15vw,200px)}
@@ -263,7 +266,7 @@ body.ver-editables .edit{outline:2px dashed #e0245e;outline-offset:2px;backgroun
 
 <header class="cab granito-claro">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Bar Restaurante Isa, inicio"><img src="img/logo-negro.png" alt="Bar Restaurante Isa" width="72" height="64"></a>
+    <a class="logo" href="#top" aria-label="Bar Restaurante Isa, inicio"><img src="img/logo-negro.png" alt="Bar Restaurante Isa" width="150" height="133"></a>
     <nav aria-label="Principal">
       <a href="#bocadillos">Bocadillos</a>
       <a href="#carta">Platos</a>
@@ -310,11 +313,11 @@ body.ver-editables .edit{outline:2px dashed #e0245e;outline-offset:2px;backgroun
   </div>
 </section>
 
-<section class="bocatas" id="bocadillos">
+<section class="bocatas granito" id="bocadillos">
   <div class="wrap">
     <div class="cab-b">
       <h2>El pan buenísimo, dicen.</h2>
-      <p class="intro">Los bocadillos de Isa llegan envueltos en su papel, con la lista escrita a rotulador. Esto es lo que más se repite en las reseñas.</p>
+      <p class="intro">Lo que más se repite en las reseñas: el pan, los bocadillos y los precios.</p>
     </div>
     <div class="tiras">
       <article class="tira">
@@ -388,7 +391,7 @@ body.ver-editables .edit{outline:2px dashed #e0245e;outline-offset:2px;backgroun
     <h2>Reservar es cuestión de un mensaje.</h2>
     <ol class="edit-lista">
       <li><div><b>Escribe o llama</b><p>Al 622 50 09 04, por teléfono o por WhatsApp.</p></div></li>
-      <li><div><b>Di cuántos sois y a qué hora</b><p>Con el comedor lleno de mesas, se arregla rápido.</p></div></li>
+      <li><div><b>Di cuántos sois y a qué hora</b><p>Así tenemos la mesa lista cuando llegues.</p></div></li>
       <li><div><b>Llega y siéntate</b><p>La comida llega rápido, cuentan en las reseñas.</p></div></li>
     </ol>
   </div>
@@ -429,7 +432,7 @@ body.ver-editables .edit{outline:2px dashed #e0245e;outline-offset:2px;backgroun
     </div>
     <div class="pie">
       <a class="btn btn-negro" href="https://www.facebook.com/BarRestauranteIsa" target="_blank" rel="noopener">Síguenos en Facebook</a>
-      <p>Las novedades y las tartas del día se cuelgan en la página de Facebook de Isa.</p>
+      <p>En la página de Facebook de Isa hay fotos de los almuerzos, los postres y las tartas.</p>
     </div>
   </div>
 </section>
@@ -456,7 +459,7 @@ body.ver-editables .edit{outline:2px dashed #e0245e;outline-offset:2px;backgroun
 
 <footer class="pie-web">
   <div class="wrap">
-    <img src="img/logo-negro.png" alt="Bar Restaurante Isa" width="72" height="64">
+    <img src="img/logo-negro.png" alt="Bar Restaurante Isa" width="130" height="115">
     <nav aria-label="Pie">
       <a href="https://www.facebook.com/BarRestauranteIsa" target="_blank" rel="noopener">Facebook</a>
       <a href="#">Aviso legal</a>
