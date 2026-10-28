@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bar Restaurante Isa · Almuerzos y comida casera en Benifaió</title>
+<meta name="description" content="Bar Restaurante Isa, en la Avenida Jaume I de Benifaió. Abre a las 5:30 de lunes a viernes: bocadillos, arroces y comida casera. 4,5 en Google con 85 reseñas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Familjen+Grotesk:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root{
+  --granito:#B4AFAF;
+  --granito-oscuro:#6F6B6B;
+  --papel:#F7F5F1;
+  --tinta:#121212;
+  --filo:#0E373D;
+  --filo-claro:#1B5A62;
+  --calabaza:#D99210;
+  --madera:#835745;
+  --display:'Caprasimo',Georgia,serif;
+  --texto:'Familjen Grotesk',Helvetica,sans-serif;
+  --rotu:'Permanent Marker','Marker Felt',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--texto);font-size:1.0625rem;line-height:1.55;color:var(--tinta);background:var(--papel);padding-bottom:72px;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--calabaza);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--tinta);color:var(--papel);padding:10px 16px;z-index:100}
+.skip:focus{left:8px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+
+/* granito */
+.granito{
+  background-color:var(--granito);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .12 0 0 0 0 .11 0 0 0 0 .11 0 0 0 10 -6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' seed='19'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -5.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 26px;font:600 1rem/1.2 var(--texto);text-decoration:none;border:2px solid var(--tinta);cursor:pointer;transition:transform .15s,background .15s,color .15s}
+.btn-negro{background:var(--tinta);color:var(--papel)}
+.btn-negro:hover{background:var(--filo)}
+.btn-linea{background:transparent;color:var(--tinta)}
+.btn-linea:hover{background:var(--tinta);color:var(--papel)}
+.btn-cal{background:var(--calabaza);border-color:var(--calabaza);color:var(--tinta)}
+.btn-cal:hover{background:var(--papel);border-color:var(--papel)}
+
+/* cabecera */
+.cab{position:absolute;inset:0 0 auto 0;z-index:10}
+.cab .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.cab .logo img{height:54px;width:auto}
+.cab nav{display:none;gap:28px}
+.cab nav a{font-weight:600;text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
+.cab nav a:hover{border-color:var(--tinta)}
+.cab .btn{min-height:44px;padding:8px 20px}
+
+/* hero */
+.hero{position:relative;padding:96px 0 0;overflow:hidden}
+.hero .wrap{position:relative;display:grid;gap:0}
+.estado{display:inline-flex;align-items:center;gap:10px;background:var(--tinta);color:var(--papel);padding:9px 16px 9px 14px;font-weight:600;font-size:.95rem;width:fit-content}
+.estado i{width:10px;height:10px;border-radius:50%;background:#8a8a8a;flex:none}
+.estado.abierto i{background:#5fd07a}
+.estado.cerrado i{background:#ff7a5c}
+.hora{font-family:var(--display);font-size:clamp(7.2rem,36vw,19rem);line-height:.82;letter-spacing:-.03em;margin:22px 0 0 -.04em;color:var(--tinta)}
+.hora span{color:var(--filo)}
+.hero-txt{max-width:30ch;margin-top:20px}
+.hero-txt p.gr{font-size:1.5rem;line-height:1.2;font-weight:600}
+.hero-txt p.pq{margin-top:12px;color:#2b2b2b}
+.hero .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.plato{border-radius:50%;box-shadow:0 0 0 7px var(--papel),0 0 0 12px var(--filo);overflow:hidden;background:var(--granito)}
+.plato img{width:100%;height:100%;object-fit:cover}
+.hero .p1{width:min(86vw,430px);aspect-ratio:1;margin:46px -14vw -14vw auto;position:relative;z-index:2}
+.hero .p2{position:absolute;width:34vw;max-width:190px;aspect-ratio:1;left:-6vw;bottom:-6vw;z-index:3}
+
+/* banda confianza */
+.banda{background:var(--tinta);color:var(--papel);padding:92px 0 38px;position:relative;z-index:1}
+.banda .wrap{display:grid;gap:26px}
+.banda .nota{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.banda .nota b{font-family:var(--display);font-weight:400;font-size:clamp(4rem,14vw,7rem);line-height:.9;color:var(--calabaza)}
+.banda .estrellas{color:var(--calabaza);letter-spacing:3px;font-size:1.3rem}
+.banda .nota small{font-size:1rem;opacity:.85;display:block}
+.banda ul{list-style:none;display:grid;gap:0}
+.banda li{padding:14px 0;border-top:1px solid #ffffff33;font-size:1.05rem}
+.banda li strong{font-family:var(--display);font-weight:400;font-size:1.5rem;display:block;line-height:1.1}
+
+/* papel de bocadillo */
+.bocatas{padding:84px 0 96px;position:relative}
+.bocatas h2,.mesa h2,.res h2,.gal h2,.donde h2{font-family:var(--display);font-weight:400;line-height:.98;letter-spacing:-.01em}
+.bocatas h2{font-size:clamp(2.6rem,9vw,5.2rem);max-width:12ch}
+.bocatas .intro{max-width:44ch;margin-top:16px;color:#333}
+.tiras{margin-top:44px;display:grid;gap:18px}
+.tira{position:relative;background:#fff;padding:26px 26px 30px 30px;box-shadow:0 1px 0 #00000014;clip-path:polygon(0 4%,3% 0,7% 5%,12% 1%,18% 5%,24% 0,31% 4%,38% 0,45% 5%,52% 1%,59% 4%,66% 0,73% 5%,80% 1%,87% 4%,94% 0,100% 4%,100% 96%,96% 100%,90% 95%,83% 100%,76% 96%,69% 100%,62% 95%,55% 100%,47% 96%,40% 100%,33% 95%,25% 100%,18% 96%,10% 100%,4% 95%,0 99%);display:grid;gap:6px}
+.tira:nth-child(2){margin-left:5vw}
+.tira:nth-child(3){margin-left:2vw}
+.tira:nth-child(4){margin-left:8vw}
+.tira .n{font-family:var(--rotu);font-size:clamp(1.5rem,5.6vw,2.4rem);line-height:1.1;color:var(--filo)}
+.tira p{max-width:48ch;font-size:1rem;color:#333}
+.tira a{font-weight:600;font-size:.95rem;width:fit-content;padding:8px 0;min-height:44px;display:inline-flex;align-items:center}
+.bocatas .p3{width:min(78vw,380px);aspect-ratio:1;margin:56px auto 0 8px}
+.bocatas .p4{display:none}
+
+/* a mesa y mantel */
+.mesa{background:var(--filo);color:var(--papel);padding:88px 0 100px;position:relative;overflow:hidden}
+.mesa::before{content:"";position:absolute;inset:0 0 auto 0;height:26px;background:repeating-conic-gradient(var(--papel) 0 25%,var(--tinta) 0 50%) 0 0/26px 26px}
+.mesa .wrap{position:relative;padding-top:24px}
+.mesa h2{font-size:clamp(2.6rem,9vw,5.6rem);max-width:11ch}
+.mesa .lista{display:grid;gap:34px;margin-top:40px}
+.mesa h3{font-family:var(--display);font-weight:400;font-size:1.7rem;color:var(--calabaza);margin-bottom:8px}
+.mesa ul{list-style:none}
+.mesa li{padding:11px 0;border-bottom:1px solid #ffffff2b;font-size:1.2rem;font-weight:500}
+.mesa li span{display:block;font-size:.95rem;font-weight:400;opacity:.8}
+.mesa .fotos{position:relative;margin-top:52px;min-height:380px}
+.mesa .plato{box-shadow:0 0 0 6px var(--filo),0 0 0 11px var(--papel)}
+.mesa .f1{width:62%;max-width:360px;aspect-ratio:1;position:absolute;left:0;top:0}
+.mesa .f2{width:48%;max-width:270px;aspect-ratio:1;position:absolute;right:0;top:120px;z-index:2}
+.mesa .f3{width:38%;max-width:210px;aspect-ratio:1;position:absolute;left:14%;top:268px;z-index:3}
+
+/* pasos */
+.pasos{padding:88px 0 84px}
+.pasos h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,7vw,4rem);line-height:1;max-width:14ch}
+.pasos ol{list-style:none;margin-top:36px;display:grid;gap:0;counter-reset:p}
+.pasos li{counter-increment:p;display:grid;grid-template-columns:76px 1fr;gap:16px;padding:22px 0;border-top:2px solid var(--tinta)}
+.pasos li:last-child{border-bottom:2px solid var(--tinta)}
+.pasos li::before{content:counter(p);font-family:var(--display);font-size:3.6rem;line-height:.9;color:var(--filo)}
+.pasos li b{display:block;font-size:1.25rem}
+.pasos li p{color:#333;max-width:44ch}
+
+/* reseñas */
+.res{background:var(--granito);padding:84px 0 92px;position:relative}
+.res .wrap{display:grid;gap:30px}
+.res h2{font-size:clamp(2.2rem,7vw,4rem);max-width:13ch}
+.res .estrellas{color:var(--tinta);letter-spacing:3px;font-size:1.2rem}
+.res blockquote{background:var(--papel);padding:26px 26px 24px;position:relative}
+.res blockquote p{font-size:1.1rem;line-height:1.5}
+.res blockquote.gr{background:var(--tinta);color:var(--papel)}
+.res blockquote.gr p{font-family:var(--display);font-size:clamp(1.5rem,5vw,2.3rem);line-height:1.12}
+.res blockquote.gr .estrellas{color:var(--calabaza)}
+.res cite{display:block;margin-top:14px;font-style:normal;font-size:.92rem;font-weight:600;opacity:.85}
+.res .stack{display:grid;gap:18px}
+
+/* galería */
+.gal{padding:88px 0 80px;overflow:hidden}
+.gal h2{font-size:clamp(2.2rem,7vw,4.2rem);max-width:13ch}
+.mos{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:38px;align-items:center}
+.mos .plato{box-shadow:0 0 0 4px var(--papel),0 0 0 7px var(--filo);margin:6px}
+.mos .a{grid-column:1/5;aspect-ratio:1}
+.mos .b{grid-column:5/7;aspect-ratio:1;align-self:start}
+.mos .c{grid-column:1/3;aspect-ratio:1}
+.mos .d{grid-column:3/7;aspect-ratio:1}
+.mos .e{grid-column:2/6;aspect-ratio:4/3;border-radius:0;box-shadow:none;margin:6px 0;border:10px solid var(--papel);outline:2px solid var(--tinta);outline-offset:-2px}
+.mos .e img{object-position:center 60%}
+.gal .pie{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.gal .pie p{max-width:36ch;color:#333}
+
+/* donde */
+.donde{background:var(--tinta);color:var(--papel);padding:88px 0 100px}
+.donde .wrap{display:grid;gap:44px}
+.donde h2{font-size:clamp(2.4rem,8vw,4.8rem);max-width:10ch}
+.donde .dir{margin-top:18px;font-size:1.2rem;line-height:1.4}
+.donde .dir a{text-decoration:underline;text-underline-offset:4px}
+.horas{margin-top:30px;display:grid;gap:0}
+.dia{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:12px;padding:10px 8px;border-bottom:1px solid #ffffff26;font-size:1rem}
+.dia .barra{position:relative;height:20px;background:#ffffff14}
+.dia .barra b{position:absolute;top:0;bottom:0;background:var(--papel)}
+.dia .txt{grid-column:2;font-size:.9rem;opacity:.85;margin-top:-4px}
+.dia.hoy{background:var(--calabaza);color:var(--tinta);border-bottom-color:var(--calabaza)}
+.dia.hoy .barra{background:#00000022}
+.dia.hoy .barra b{background:var(--tinta)}
+.dia.hoy .txt{opacity:1;font-weight:600}
+.dia .cer{grid-column:2;opacity:.8}
+.regla{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:0 8px 6px;font-size:.8rem;opacity:.7}
+.regla div{display:flex;justify-content:space-between}
+.mapa{width:100%;height:340px;border:0;filter:grayscale(1) contrast(1.05)}
+.wa{margin-top:26px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.wa .btn{width:100%;font-size:1.15rem;min-height:60px}
+.wa small{opacity:.8;max-width:38ch}
+
+/* pie */
+.pie-web{background:var(--papel);padding:40px 0 30px;border-top:2px solid var(--tinta)}
+.pie-web .wrap{display:grid;gap:22px}
+.pie-web img{height:56px;width:auto}
+.pie-web nav{display:flex;flex-wrap:wrap;gap:6px 22px}
+.pie-web nav a{padding:8px 0;font-weight:500}
+.pie-web small{color:#444}
+
+/* franja dueño */
+.dueno{background:#fff;border-top:10px dashed #b3133f;padding:48px 0 60px;color:#1b1b1b}
+.dueno .aviso{display:inline-block;background:#b3133f;color:#fff;font-weight:700;padding:6px 12px;margin-bottom:18px}
+.dueno h2{font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:1.1;margin-bottom:22px}
+.dueno ul{list-style:none;display:grid;gap:14px;margin-bottom:26px}
+.dueno li{padding-left:18px;border-left:4px solid #b3133f}
+.dueno .btn{background:#b3133f;border-color:#b3133f;color:#fff}
+
+/* barra móvil */
+.movil{position:fixed;left:0;right:0;bottom:0;z-index:50;display:grid;grid-template-columns:1fr 1.4fr;background:var(--tinta);box-shadow:0 -1px 0 #ffffff33}
+.movil a{display:flex;align-items:center;justify-content:center;min-height:56px;font-weight:700;text-decoration:none;color:var(--papel)}
+.movil a+a{background:var(--calabaza);color:var(--tinta)}
+
+/* editables */
+body.ver-editables .edit{outline:2px dashed #e0245e;outline-offset:2px;background:#ff3b6b33}
+
+@media (min-width:760px){
+  body{padding-bottom:0}
+  .movil{display:none}
+  .cab nav{display:flex}
+  .cab .logo img{height:64px}
+  .hero{padding-top:110px}
+  .hero .wrap{grid-template-columns:1.05fr .95fr;align-items:end;column-gap:20px}
+  .hero .col-i{padding-bottom:64px}
+  .hora{font-size:clamp(10rem,22vw,20rem)}
+  .hero .p1{width:min(42vw,520px);margin:0 -4vw -90px auto}
+  .hero .p2{left:auto;right:calc(min(42vw,520px) - 6vw);bottom:-70px;width:min(15vw,200px)}
+  .banda{padding:130px 0 44px}
+  .banda .wrap{grid-template-columns:1.1fr 2fr;align-items:center;gap:60px}
+  .banda ul{grid-template-columns:repeat(3,1fr);gap:22px}
+  .banda li{border-top:0;border-left:1px solid #ffffff33;padding:6px 0 6px 20px}
+  .bocatas .wrap{display:grid;grid-template-columns:1.25fr .75fr;column-gap:70px;align-items:start}
+  .bocatas .cab-b{grid-column:1/3}
+  .tiras{grid-column:1;margin-top:34px}
+  .tira:nth-child(2){margin-left:60px}
+  .tira:nth-child(3){margin-left:20px}
+  .tira:nth-child(4){margin-left:90px}
+  .bocatas .lado{grid-column:2;position:sticky;top:30px;margin-top:34px}
+  .bocatas .p3{width:100%;margin:0}
+  .mesa .lista{grid-template-columns:repeat(3,1fr);gap:40px}
+  .mesa .wrap{display:grid;grid-template-columns:1.1fr .9fr;column-gap:60px}
+  .mesa .cab-m{grid-column:1/3}
+  .mesa .fotos{grid-column:2;grid-row:2;margin-top:34px;min-height:560px}
+  .mesa .lista{grid-column:1;grid-row:2;grid-template-columns:1fr;gap:26px}
+  .mesa .f1{width:70%;max-width:none}
+  .mesa .f2{width:50%;max-width:none;top:230px}
+  .mesa .f3{width:38%;max-width:none;left:6%;top:390px}
+  .pasos ol{grid-template-columns:repeat(3,1fr);gap:34px}
+  .pasos li{grid-template-columns:1fr;border:0;border-top:2px solid var(--tinta);padding:18px 0}
+  .pasos li:last-child{border-bottom:0}
+  .pasos li:nth-child(2){margin-top:46px}
+  .pasos li:nth-child(3){margin-top:92px}
+  .pasos li::before{font-size:5rem}
+  .res .wrap{grid-template-columns:repeat(12,1fr);column-gap:22px}
+  .res h2{grid-column:1/6;align-self:start}
+  .res .gr{grid-column:6/13}
+  .res .stack{grid-column:3/13;grid-template-columns:1fr 1fr}
+  .mos{grid-template-columns:repeat(12,1fr);gap:22px}
+  .mos .a{grid-column:1/6}
+  .mos .b{grid-column:6/9;margin-top:-30px}
+  .mos .c{grid-column:9/13;align-self:end}
+  .mos .d{grid-column:2/6}
+  .mos .e{grid-column:6/13;aspect-ratio:16/10}
+  .donde .wrap{grid-template-columns:1fr 1fr;align-items:start;gap:70px}
+  .mapa{height:440px}
+  .wa .btn{width:auto;min-width:360px}
+  .pie-web .wrap{grid-template-columns:auto 1fr auto;align-items:center;gap:40px}
+  .dueno ul{grid-template-columns:repeat(2,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="cab granito-claro">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Bar Restaurante Isa, inicio"><img src="img/logo-negro.png" alt="Bar Restaurante Isa" width="72" height="64"></a>
+    <nav aria-label="Principal">
+      <a href="#bocadillos">Bocadillos</a>
+      <a href="#carta">Platos</a>
+      <a href="#resenas">Reseñas</a>
+      <a href="#horario">Horario</a>
+    </nav>
+    <a class="btn btn-negro" href="tel:+34622500904">Llamar</a>
+  </div>
+</header>
+
+<main id="contenido">
+<section class="hero granito" id="top">
+  <div class="wrap">
+    <div class="col-i">
+      <p class="estado" id="estado" role="status"><i></i><span>Comprobando horario…</span></p>
+      <h1 class="hora" aria-label="Bar Restaurante Isa, abre a las 5:30">5<span>:</span>30</h1>
+      <div class="hero-txt">
+        <p class="gr">Así abre Isa de lunes a viernes, en la Avenida Jaume I.</p>
+        <p class="pq">Un lugar agradable para desayunar, almorzar, comer o merendar rápidamente y con comida casera.</p>
+      </div>
+      <div class="acciones">
+        <a class="btn btn-negro edit" href="https://wa.me/34622500904?text=Hola%2C%20quiero%20reservar%20mesa%20en%20el%20Bar%20Restaurante%20Isa" target="_blank" rel="noopener">Reservar mesa</a>
+        <a class="btn btn-linea" href="#bocadillos">Ver los bocadillos</a>
+      </div>
+    </div>
+    <div class="col-d" style="position:relative">
+      <div class="plato p1"><img src="img/bocata-huevo.jpg" alt="Bocadillo de huevo frito, queso y beicon con patatas, sobre un plato" width="1100" height="1100" fetchpriority="high"></div>
+      <div class="plato p2"><img src="img/cafe.jpg" alt="Café en taza blanca con filo verde sobre la barra de granito" width="1100" height="1100"></div>
+    </div>
+  </div>
+</section>
+
+<section class="banda" aria-label="Valoración en Google">
+  <div class="wrap">
+    <div class="nota">
+      <b>4,5</b>
+      <div><span class="estrellas" aria-hidden="true">★★★★★</span><small>85 reseñas en Google</small></div>
+    </div>
+    <ul>
+      <li><strong>De 1 a 10 €</strong>por persona, según las reseñas de Google</li>
+      <li><strong>Raciones grandes</strong>"Trato amable y familiar. Te traen la comida rápido."</li>
+      <li><strong>Comida casera</strong>Bocadillos, arroces, hamburguesas y tartas</li>
+    </ul>
+  </div>
+</section>
+
+<section class="bocatas" id="bocadillos">
+  <div class="wrap">
+    <div class="cab-b">
+      <h2>El pan buenísimo, dicen.</h2>
+      <p class="intro">Los bocadillos de Isa llegan envueltos en su papel, con la lista escrita a rotulador. Esto es lo que más se repite en las reseñas.</p>
+    </div>
+    <div class="tiras">
+      <article class="tira">
+        <span class="n">Tortilla de patatas y pimientos</span>
+        <p>El bocadillo de almuerzo de toda la vida, en su pan.</p>
+        <a href="https://wa.me/34622500904?text=Hola%2C%20quiero%20un%20bocadillo%20de%20tortilla%20de%20patatas%20y%20pimientos" target="_blank" rel="noopener" class="edit">Pedirlo por WhatsApp</a>
+      </article>
+      <article class="tira">
+        <span class="n">Chivito</span>
+        <p>Uno de los platos que recomiendan en Google.</p>
+        <a href="https://wa.me/34622500904?text=Hola%2C%20quiero%20un%20chivito" target="_blank" rel="noopener" class="edit">Pedirlo por WhatsApp</a>
+      </article>
+      <article class="tira">
+        <span class="n">Hamburguesa casera</span>
+        <p>De Black Angus, 200 gramos. "Deliciosa", escribió quien la pidió por recomendación del dueño.</p>
+        <a href="https://wa.me/34622500904?text=Hola%2C%20quiero%20una%20hamburguesa%20casera" target="_blank" rel="noopener" class="edit">Pedirla por WhatsApp</a>
+      </article>
+      <article class="tira">
+        <span class="n edit">Bocadillo del día</span>
+        <p class="edit">Pregunta en barra cuál toca hoy.</p>
+      </article>
+    </div>
+    <div class="lado">
+      <div class="plato p3"><img src="img/bocata-tortilla.jpg" alt="Bocadillo de tortilla de patatas con beicon" width="945" height="945" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="mesa" id="carta">
+  <div class="wrap">
+    <div class="cab-m"><h2>A mesa y mantel.</h2></div>
+    <div class="lista">
+      <div>
+        <h3>Arroces</h3>
+        <ul>
+          <li>Paella valenciana</li>
+          <li>Paella de bacalao con coliflor</li>
+          <li>Fideuá</li>
+          <li>Arroz al horno</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Para compartir</h3>
+        <ul>
+          <li>Albóndigas caseras al horno</li>
+          <li>Alitas de pollo</li>
+          <li>Ensaladilla rusa</li>
+          <li>Ensalada de pasta</li>
+          <li>Carne empanada rebozada</li>
+          <li>Tolma y pelmeni armenios</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Para acabar</h3>
+        <ul>
+          <li>Tarta Snickers</li>
+          <li>Tarta casera con relleno de crema casera</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fotos">
+      <div class="plato f1"><img src="img/paella.jpg" alt="Paella de verduras y carne en la paella" width="1100" height="1100" loading="lazy"></div>
+      <div class="plato f2"><img src="img/calabaza.jpg" alt="Calabaza asada al horno, abierta" width="1100" height="1100" loading="lazy"></div>
+      <div class="plato f3"><img src="img/tarta.jpg" alt="Tarta casera con cobertura de galleta y crema" width="1100" height="1100" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="pasos">
+  <div class="wrap">
+    <h2>Reservar es cuestión de un mensaje.</h2>
+    <ol class="edit-lista">
+      <li><div><b>Escribe o llama</b><p>Al 622 50 09 04, por teléfono o por WhatsApp.</p></div></li>
+      <li><div><b>Di cuántos sois y a qué hora</b><p>Con el comedor lleno de mesas, se arregla rápido.</p></div></li>
+      <li><div><b>Llega y siéntate</b><p>La comida llega rápido, cuentan en las reseñas.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="res" id="resenas">
+  <div class="wrap">
+    <h2>Lo que dicen en Google.</h2>
+    <blockquote class="gr">
+      <span class="estrellas" aria-label="5 estrellas">★★★★★</span>
+      <p>Desde que descubrí el restaurante por casualidad no e dejado de ir. Tienen una gran variedad de bocadillos y platos de comida. La comida espectacular y el servicio impecable. En definitiva un 10 muy recomendable para los amantes de la buena comida.</p>
+      <cite>Reseñas de Google</cite>
+    </blockquote>
+    <div class="stack">
+      <blockquote>
+        <span class="estrellas" aria-label="5 estrellas">★★★★★</span>
+        <p>Gran descubrimiento. Hemos almorzar de maravilla. Pedí por recomendación del dueño la hamburguesa casera.....deliciosa. El pan buenísimo. Y el precio más que justo. Volveremos.</p>
+        <cite>Reseñas de Google</cite>
+      </blockquote>
+      <blockquote>
+        <span class="estrellas" aria-label="5 estrellas">★★★★★</span>
+        <p>Relación calidad-precio fantástico. Comida riquísima y raciones muy grandes. Trato amable y familiar. Te traen la comida rápido. Recomendadisimo.</p>
+        <cite>Reseñas de Google</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="gal">
+  <div class="wrap">
+    <h2>Un vistazo al local y a la barra.</h2>
+    <div class="mos">
+      <div class="plato a"><img src="img/bocata-pimientos.jpg" alt="Bocadillo de embutido con pimientos verdes" width="648" height="648" loading="lazy"></div>
+      <div class="plato b"><img src="img/cafe.jpg" alt="Café con la barra de granito al fondo" width="1100" height="1100" loading="lazy"></div>
+      <div class="plato c"><img src="img/plato.jpg" alt="Plato de arroz con garbanzos y costilla" width="858" height="900" loading="lazy"></div>
+      <div class="plato d"><img src="img/tarta.jpg" alt="Tarta casera abierta con relleno de crema" width="1100" height="1100" loading="lazy"></div>
+      <div class="plato e"><img src="img/comedor.jpg" alt="Comedor con mesas de mantel verde y sillas de madera" width="1200" height="674" loading="lazy"></div>
+    </div>
+    <div class="pie">
+      <a class="btn btn-negro" href="https://www.facebook.com/BarRestauranteIsa" target="_blank" rel="noopener">Síguenos en Facebook</a>
+      <p>Las novedades y las tartas del día se cuelgan en la página de Facebook de Isa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="donde" id="horario">
+  <div class="wrap">
+    <div>
+      <h2>Ven a almorzar.</h2>
+      <p class="dir"><a href="https://www.google.com/maps/search/?api=1&query=Bar+Restaurante+Isa+Av.+Jaume+I+31+Benifaio" target="_blank" rel="noopener">Av. Jaume I, 31<br>46450 Benifaió (Valencia)</a><br><a href="tel:+34622500904">622 50 09 04</a></p>
+      <div class="horas edit" id="horas" aria-label="Horario semanal">
+        <div class="regla" aria-hidden="true"><span></span><div><span>6h</span><span>9h</span><span>12h</span><span>15h</span><span>18h</span></div></div>
+      </div>
+      <div class="wa">
+        <a class="btn btn-cal edit" href="https://wa.me/34622500904?text=Hola%2C%20os%20escribo%20desde%20la%20web%20del%20Bar%20Restaurante%20Isa" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <small class="edit">Si prefieres hablar, llama al 622 50 09 04.</small>
+      </div>
+    </div>
+    <div>
+      <iframe class="mapa" title="Mapa: Bar Restaurante Isa, Avenida Jaume I 31, Benifaió" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Bar+Restaurante+Isa,+Av.+Jaume+I,+31,+46450+Benifai%C3%B3&amp;output=embed"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pie-web">
+  <div class="wrap">
+    <img src="img/logo-negro.png" alt="Bar Restaurante Isa" width="72" height="64">
+    <nav aria-label="Pie">
+      <a href="https://www.facebook.com/BarRestauranteIsa" target="_blank" rel="noopener">Facebook</a>
+      <a href="#">Aviso legal</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Cookies</a>
+    </nav>
+    <small>Bar Restaurante Isa · Benifaió</small>
+  </div>
+</footer>
+
+<section class="dueno" aria-label="Solo para el dueño">
+  <div class="wrap">
+    <p class="aviso">Esta franja no aparece en la web publicada</p>
+    <h2>Por qué una web propia para el Bar Restaurante Isa</h2>
+    <ul>
+      <li><b>Reservas y pedidos directos.</b> Un toque en el móvil lleva a tu WhatsApp, sin plataformas ni comisiones.</li>
+      <li><b>Salir cuando buscan "bar restaurante en Benifaió".</b> Con la web enlazada en Google y Maps, la ficha deja de tener solo un teléfono.</li>
+      <li><b>Horario y platos fáciles de cambiar.</b> Si abres un sábado distinto o cambia el plato del día, se actualiza en minutos.</li>
+      <li><b>Tu 4,5 en Google bien presentado.</b> 85 reseñas, con las frases de tus clientes a la vista de quien aún no ha entrado.</li>
+    </ul>
+    <button class="btn" type="button" id="resaltar" aria-pressed="false">Resaltar datos a confirmar</button>
+  </div>
+</section>
+
+<div class="movil">
+  <a href="tel:+34622500904">Llamar</a>
+  <a class="edit" href="https://wa.me/34622500904?text=Hola%2C%20quiero%20reservar%20mesa%20en%20el%20Bar%20Restaurante%20Isa" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  // horario (minutos desde medianoche). 0=domingo
+  var H={0:null,1:[330,1020],2:[330,1020],3:[330,1020],4:[330,1020],5:[330,1020],6:[360,780]};
+  var N=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  function fmt(m){var h=Math.floor(m/60),mm=m%60;return h+':'+(mm<10?'0':'')+mm}
+  function ahora(){
+    var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var o={};p.forEach(function(x){o[x.type]=x.value});
+    var d={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];
+    return {d:d,m:(parseInt(o.hour,10)%24)*60+parseInt(o.minute,10)};
+  }
+  function siguiente(d,m){
+    for(var i=0;i<8;i++){
+      var dd=(d+i)%7,h=H[dd];
+      if(h && (i>0 || m<h[0])) return {dia:i===0?'hoy':(i===1?'mañana':'el '+N[dd]),h:h[0]};
+    }
+  }
+  function pinta(){
+    var t=ahora(),h=H[t.d],el=document.getElementById('estado'),s=el.querySelector('span');
+    el.classList.remove('abierto','cerrado');
+    if(h && t.m>=h[0] && t.m<h[1]){el.classList.add('abierto');s.textContent='Abierto ahora · cerramos a las '+fmt(h[1])}
+    else{var n=siguiente(t.d,t.m);el.classList.add('cerrado');s.textContent='Cerrado · abrimos '+n.dia+' a las '+fmt(n.h)}
+    document.querySelectorAll('.dia').forEach(function(r){r.classList.toggle('hoy',+r.dataset.d===t.d)});
+  }
+  // filas del horario
+  var cont=document.getElementById('horas'),orden=[1,2,3,4,5,6,0],A=360,B=1080;
+  var grupos=[[1,5,'Lunes a viernes'],[6,6,'Sábado'],[0,0,'Domingo']];
+  grupos.forEach(function(g){
+    var h=H[g[0]],row=document.createElement('div');
+    row.className='dia';row.dataset.d=g[0];
+    row.dataset.rango=g[0]+'-'+g[1];
+    var lab=document.createElement('span');lab.textContent=g[2];row.appendChild(lab);
+    if(h){
+      var bar=document.createElement('div');bar.className='barra';
+      var b=document.createElement('b');
+      b.style.left=Math.max(0,(h[0]-A)/(B-A)*100)+'%';
+      b.style.width=((h[1]-Math.max(h[0],A))/(B-A)*100)+'%';
+      bar.appendChild(b);row.appendChild(bar);
+      var tx=document.createElement('span');tx.className='txt';tx.textContent=fmt(h[0])+' a '+fmt(h[1]);row.appendChild(tx);
+    }else{
+      var c=document.createElement('span');c.className='cer';c.textContent='Cerrado';row.appendChild(c);
+    }
+    cont.appendChild(row);
+  });
+  // el día de hoy: lunes a viernes comparte fila
+  var _p=pinta;
+  pinta=function(){
+    var t=ahora();
+    _p();
+    document.querySelectorAll('.dia').forEach(function(r){
+      var a=r.dataset.rango.split('-');
+      r.classList.toggle('hoy',t.d>=+a[0]&&t.d<=+a[1]);
+    });
+  };
+  pinta();setInterval(pinta,60000);
+  var btn=document.getElementById('resaltar');
+  btn.addEventListener('click',function(){
+    var on=document.body.classList.toggle('ver-editables');
+    btn.setAttribute('aria-pressed',on);
+  });
+})();
+</script>
+</body>
+</html>
